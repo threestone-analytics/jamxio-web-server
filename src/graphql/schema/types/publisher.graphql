@@ -1,0 +1,6 @@
+
+  type Publisher {
+    user: User,
+    records: [Record],
+  }
+
