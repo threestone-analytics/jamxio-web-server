@@ -6,8 +6,6 @@ const handleError = function(err) {
   console.log('error', err);
 };
 export default function addDocument(root, { record }) {
-  console.log(record);
-
   saveMap(record.document.geometry);
   const date = new Date();
   const id = '5b5e37a947359809a0d7abae';
