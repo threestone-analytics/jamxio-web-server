@@ -1,6 +1,4 @@
 import RecordModel from '../../../db/models/record.model';
-import UserModel from '../../../db/models/user.model';
-import PublisherModel from '../../../db/models/publisher.model';
 import DocumentModel from '../../../db/models/document.model';
 import { saveMap } from './handlers';
 
