@@ -1,12 +1,10 @@
 import RecordModel from '../../../db/models/record.model';
 import DocumentModel from '../../../db/models/document.model';
-import { saveMap } from './handlers';
 
 const handleError = function(err) {
   console.log('error', err);
 };
 export default function addDocument(root, { record }) {
-  saveMap(record.document.geometry);
   const date = new Date();
   const id = '5b5e37a947359809a0d7abae';
 

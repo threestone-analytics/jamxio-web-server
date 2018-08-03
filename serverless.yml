@@ -1,0 +1,36 @@
+service: boilerplate-server-graphql-lambda
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-1
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      forceExclude:
+        - aws-sdk
+    packager: npm
+
+package:
+  individually: true
+
+functions:
+  graphql:
+    handler: src/handlers.graphql
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+  graphiql:
+    handler: src/handlers.graphiql
+    events:
+      - http:
+          path: graphiql
+          method: get

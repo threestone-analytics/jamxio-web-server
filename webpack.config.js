@@ -1,21 +1,29 @@
 const path = require('path');
-const webpack = require('webpack');
+const slsw = require('serverless-webpack');
 const nodeExternals = require('webpack-node-externals');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/index.js'),
-  output: {
-    path: path.resolve(__dirname, 'dist/'),
-    filename: `index.js`,
-    publicPath: 'https://localhost:4000',
+  entry: slsw.lib.entries,
+  target: 'node',
+  mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
+  optimization: {
+    minimize: false,
   },
+  performance: {
+    hints: false,
+  },
+  devtool: 'nosources-source-map',
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
       {
         test: /\.(graphql|gql)$/,
@@ -24,21 +32,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.ProvidePlugin({
-      regeneratorRuntime: 'regenerator-runtime/runtime',
-    }),
-    new Dotenv({
-      path: path.resolve(__dirname, './src/.env'),
-    }),
-  ],
-  devtool: 'source-map',
-  resolve: {
-    mainFields: ['main', 'module'],
-    extensions: ['.js', '.mjs'],
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  output: {
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, '.webpack'),
+    filename: '[name].js',
+    sourceMapFilename: '[file].map',
   },
-  target: 'node',
-  externals: [nodeExternals()],
 };

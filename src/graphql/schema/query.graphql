@@ -13,4 +13,5 @@ type Query {
   getRecordById(_id: ID!): Record
   getLatestDocuments: [Document]
   getRecordByCategory: [Document]
+  getPosts: [Post]
 }

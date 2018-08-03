@@ -16,6 +16,5 @@ node_modules
 dist
 
 .debug
-
-src/.env
-
+.webpack
+.serverless

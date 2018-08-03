@@ -1,5 +1,18 @@
 {
+  "comments": false,
   "presets": [
-    "@babel/env"
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "8.10"
+      }
+    }]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "source-map-support"
+  ],
+  "ignore": [
+    "dist",
+    ".webpack"
   ]
 }
