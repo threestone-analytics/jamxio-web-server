@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
-
+delete mongoose.connection.models['Post'];
 const postsSchema = new Schema(
   {
     url: String,

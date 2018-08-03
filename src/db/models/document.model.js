@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
-
+delete mongoose.connection.models['Document'];
 const documentsSchema = new Schema(
   {
     recordId: Schema.Types.ObjectId,

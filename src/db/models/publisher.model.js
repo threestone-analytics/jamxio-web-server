@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
-
+delete mongoose.connection.models['Publisher'];
 const publishersSchema = new Schema(
   {
     user: Schema.Types.ObjectId,
