@@ -1,1 +1,1 @@
-jamxio-server-graphql-lambda
+boilerplate-server-graphql-lambda

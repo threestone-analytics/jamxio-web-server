@@ -1,4 +1,4 @@
-service: jamxio-server-graphql-lambda
+service: boilerplate-server-graphql-lambda
 
 plugins:
   - serverless-webpack
