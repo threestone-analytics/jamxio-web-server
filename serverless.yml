@@ -1,4 +1,4 @@
-service: boilerplate-server-graphql-lambda
+service: jamxio-server-graphql-lambda
 
 plugins:
   - serverless-webpack
@@ -7,7 +7,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
-  region: us-east-1
+  region: us-west-1
 
 custom:
   webpack:
