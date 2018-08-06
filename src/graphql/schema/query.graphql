@@ -14,4 +14,5 @@ type Query {
   getLatestDocuments: [Document]
   getRecordByCategory: [Document]
   getPosts: [Post]
+  getTweets: [Tweet]
 }

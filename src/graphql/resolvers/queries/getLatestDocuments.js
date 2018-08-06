@@ -3,13 +3,10 @@ import RecordModel from '../../../db/models/record.model';
 export default async function(root, { _id }, context) {
   const records = await RecordModel.find();
   const dataPromises = records.map(record => {
-    const data = DocumentModel.findOne(
+    const data = DocumentModel.findOneAndUpdate(
       { recordId: record._id },
-      {},
-      { sort: { publishedDate: -1 } },
-      function(_err, post) {
-        return post;
-      }
+      { title: record.title },
+      { sort: { publishedDate: -1 } }
     ).exec();
     return data;
   });

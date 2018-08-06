@@ -1,0 +1,9 @@
+
+type Tweet {
+  url: String,
+  content: JSON,
+  image: String,
+  title: String,
+  author: String,
+  position: JSON,
+}
