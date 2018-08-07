@@ -63,7 +63,6 @@ deployServerGraphql:
   script:
     - ssh -v git@gitlab.com
     - npm install 
-    - npm run start:remove-deploy
     - npm run start:deploy
   environment:
     name: production

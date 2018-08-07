@@ -1,11 +1,12 @@
 
   type Document {
     _id: ID
+    file: JSON
     url: String
     recordId: ID
+    title: String
     format: String
     source: String
-    file: JSON
     geometry: JSON
     publisher: String
     geojsonType: String

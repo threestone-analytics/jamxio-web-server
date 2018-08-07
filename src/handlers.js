@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-lambda';
 import { makeExecutableSchema } from 'graphql-tools';
-
+import 'babel-polyfill';
 import typeDefs from './graphql/schema';
 import resolvers from './graphql/resolvers';
 

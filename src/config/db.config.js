@@ -1,8 +1,13 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_ATLAS_URI);
+const uri =
+  'mongodb://alexter42:contrasenaalexter42@jamxio-shard-00-00-kloz1.mongodb.net:27017,jamxio-shard-00-01-kloz1.mongodb.net:27017,jamxio-shard-00-02-kloz1.mongodb.net:27017/jamxio-web?ssl=true&replicaSet=jamxio-shard-0&authSource=admin&retryWrites=true';
+mongoose.connect(
+  uri,
+  { useNewUrlParser: true }
+);
 
-console.log(process.env.MONGODB_ATLAS_URI);
+console.log(uri);
 
 // print mongoose logs in dev env
 if (process.env.MONGOOSE_DEBUG) {

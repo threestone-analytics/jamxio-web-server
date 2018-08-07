@@ -11,6 +11,10 @@ export default {
     const data = await loaders.getDocument.load(_id);
     return data.geometry;
   },
+  async title({ _id }, contex, { loaders }) {
+    const data = await loaders.getDocument.load(_id);
+    return data.title;
+  },
   async publisher({ _id }, contex, { loaders }) {
     const data = await loaders.getDocument.load(_id);
     return data.publisher;
