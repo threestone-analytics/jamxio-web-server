@@ -1,16 +1,13 @@
 import mongoose from 'mongoose';
 
-const uri =
-  'mongodb://alexter42:contrasenaalexter42@jamxio-shard-00-00-kloz1.mongodb.net:27017,jamxio-shard-00-01-kloz1.mongodb.net:27017,jamxio-shard-00-02-kloz1.mongodb.net:27017/jamxio-web?ssl=true&replicaSet=jamxio-shard-0&authSource=admin&retryWrites=true';
+mongoose.connect(process.env.MONGODB_ATLAS_URI);
 
-mongoose.connect(uri).catch(function(reason) {
-  console.log('Unable to connect to the mongodb instance. Error: ', reason);
-});
+console.log(process.env.MONGODB_ATLAS_URI)
 
 // print mongoose logs in dev env
 if (process.env.MONGOOSE_DEBUG) {
   mongoose.set('debug', (collectionName, method, query, doc) => {
-    console.info(`${collectionName}.${method}`, doc, 'debug'); // eslint-disable-line no-console
+    console.info(`${collectionName}.${method}`, doc,"debug"); // eslint-disable-line no-console
   });
 }
 mongoose.connection.on('disconnected', () => {
