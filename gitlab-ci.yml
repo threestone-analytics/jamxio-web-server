@@ -49,20 +49,12 @@ image: node:latest
 stages:
   - deploy
   
-cache:
-  untracked: true
-  key: "$CI_COMMIT_REF_NAME"
-  paths:
-    - node_modules
-    - serverless
-  
 deployServerGraphql:
   stage: deploy
   tags: 
-    - aws-spot-nodejs
+    - aws-nodejs
   script:
     - ssh -v git@gitlab.com
-    - npm install 
-    - npm run start:deploy
+    - yarn 
   environment:
     name: production
