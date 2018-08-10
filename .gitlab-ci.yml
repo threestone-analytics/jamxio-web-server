@@ -54,9 +54,9 @@ deployServerGraphql:
   tags: 
     - aws-nodejs
 script:
-    - ssh -v git@gitlab.com
-    - sudo cp -rf . /home/ubuntu/
-    - sudo cd /home/ubuntu/
-    - yarn
+  - ssh -v git@gitlab.com
+  - sudo cp -rf . /home/ubuntu/
+  - sudo cd /home/ubuntu/
+  - yarn
   environment:
     name: production
