@@ -53,14 +53,10 @@ deployServerGraphql:
   stage: deploy
   tags: 
     - aws-nodejs
-  script:
+script:
     - ssh -v git@gitlab.com
-    - cp -rf . /home/ubuntu/
-    - cd /home/ubuntu/
+    - sudo cp -rf . /home/ubuntu/
+    - sudo cd /home/ubuntu/
     - yarn
-    - yarn prestart:build
-    - cd dist
-    - pm2 delete all
-    - pm2 start index.js -i 0 --watch 
   environment:
     name: production

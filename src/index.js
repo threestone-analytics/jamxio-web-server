@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import { graphqlExpress, graphiqlExpress, ApolloServer } from 'apollo-server-express';
 import cors from 'cors';
 import { makeExecutableSchema } from 'graphql-tools';
 
@@ -16,19 +16,16 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 
-const graphQLServer = graphqlExpress({
+const server = new ApolloServer({
   schema,
   context: { models, loaders: loaders() },
 });
 
 const app = express();
-
 app.use(cors());
 
-app.use('/graphql', bodyParser.json({ limit: '100mb' }), graphQLServer);
 
-// GraphiQL, a visual editor for queries
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+server.applyMiddleware({ app });
 
 db.connection.on('error', error => {
   console.log(error);
