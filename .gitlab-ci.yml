@@ -55,6 +55,12 @@ deployServerGraphql:
     - aws-nodejs
   script:
     - ssh -v git@gitlab.com
-    - yarn 
+    - cp -rf . /home/ubuntu/
+    - cd /home/ubuntu/
+    - yarn
+    - yarn prestart:build
+    - cd dist
+    - pm2 delete all
+    - pm2 start index.js -i 0 --watch 
   environment:
     name: production
