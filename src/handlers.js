@@ -8,7 +8,6 @@ import db from './config/db.config';
 import loaders from './db/loaders';
 import models from './db/models';
 
-
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
@@ -17,12 +16,14 @@ const schema = makeExecutableSchema({
 const server = new ApolloServer({
   schema,
   context: ({ event, context }) => ({
-    headers: event.headers,
+    headers: {
+      'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+    },
     functionName: context.functionName,
     event,
     context,
-    models, 
-    loaders: loaders() 
+    models,
+    loaders: loaders(),
   }),
 });
 

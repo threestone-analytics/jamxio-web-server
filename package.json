@@ -6,7 +6,7 @@
     "start:deploy": "serverless deploy --stage prod",
     "start:remove-deploy": "serverless remove --stage prod",
     "start:build": "serverless webpack --out dist --stage prod",
-    "start:dev": "serverless offline --stage dev"
+    "start:dev": "serverless offline --stage dev --port 4000 --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.55",
