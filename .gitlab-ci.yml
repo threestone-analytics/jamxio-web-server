@@ -57,7 +57,7 @@ deployServerGraphql:
     - yarn
     - yarn prestart:prod
     - cd dist
-    - rm -rf . /home/ubuntu/server
+    - rm -rf /home/ubuntu/server
     - cp -rf . /home/ubuntu/server
     - cd /home/ubuntu/server
     - pm2 delete all 
