@@ -54,7 +54,6 @@ deployServerGraphql:
   tags: 
     - aws-nodejs
   script:
-    - ssh -v git@gitlab.com
     - yarn
     - yarn prestart:prod
     - cd dist
