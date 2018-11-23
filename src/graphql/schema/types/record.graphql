@@ -2,6 +2,7 @@
 type Record {
 	_id: ID
 	title : String
+	color : String
 	thumbnail: String
 	documentType : DocumentType
 	documents: [Document]

@@ -7,6 +7,7 @@ const documentsSchema = new Schema(
     recordId: Schema.Types.ObjectId,
     url: String,
     title: String,
+    color : String,
     format: String,
     source: String,
     geometry: JSON,

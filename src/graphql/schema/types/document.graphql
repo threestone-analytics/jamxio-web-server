@@ -5,6 +5,7 @@
     url: String
     recordId: ID
     title: String
+    color: String
     format: String
     source: String
     geometry: JSON

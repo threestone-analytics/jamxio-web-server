@@ -5,6 +5,7 @@ delete mongoose.connection.models['Record'];
 const recordsSchema = new Schema(
   {
     title: String,
+    color: String,
     thumbnail: String,
     documentType: Schema.Types.ObjectId,
     documents: [Schema.Types.ObjectId],

@@ -11,6 +11,7 @@ input Doc {
   source: String
   format: String
   title: String
+  color : String
   url: String
   geometry: JSON
   geojsonType: String
@@ -30,6 +31,7 @@ input Pub {
 
 input RecordInput {
   title: String
+  color : String
   documentType: DT
   thumbnail: String
   document: Doc

@@ -1,6 +1,7 @@
 type DocumentByCategory {
     _id: ID
     title: String
+    color : String
     documentType: DocumentType
     document: Document
 }

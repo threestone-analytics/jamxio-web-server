@@ -15,6 +15,10 @@ export default {
     const data = await loaders.getDocument.load(_id);
     return data.title;
   },
+  async color({ _id }, contex, { loaders }) {
+    const data = await loaders.getDocument.load(_id);
+    return data.color;
+  },
   async publisher({ _id }, contex, { loaders }) {
     const data = await loaders.getDocument.load(_id);
     return data.publisher;
