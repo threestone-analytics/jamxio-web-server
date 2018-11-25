@@ -43,24 +43,27 @@ before_script:
   ##
   - git config --global user.email "lexie@protonmail.ch"
   - git config --global user.name "alexter42"
-      
+
 image: node:latest
 
 stages:
   - deploy
-  
+
 deployServerGraphql:
   stage: deploy
-  tags: 
+  tags:
     - aws-nodejs
   script:
     - yarn
     - yarn prestart:prod
-    - cd dist
     - rm -rf /home/ubuntu/server
+    - mkdir /home/ubuntu/server
+    - cp -f package.json /home/ubuntu/server
+    - cd dist
     - cp -rf . /home/ubuntu/server
     - cd /home/ubuntu/server
-    - pm2 delete all 
+    - yarn install --production=true
+    - pm2 delete all
     - pm2 start index.js -i 0
     - pm2 update
   environment:

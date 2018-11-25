@@ -1,13 +1,14 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_ATLAS_URI);
-
-console.log(process.env.MONGODB_ATLAS_URI)
+mongoose.connect(
+  process.env.MONGODB_ATLAS_URI,
+  { useNewUrlParser: true }
+);
 
 // print mongoose logs in dev env
 if (process.env.MONGOOSE_DEBUG) {
   mongoose.set('debug', (collectionName, method, query, doc) => {
-    console.info(`${collectionName}.${method}`, doc,"debug"); // eslint-disable-line no-console
+    console.info(`${collectionName}.${method}`, doc, 'debug'); // eslint-disable-line no-console
   });
 }
 mongoose.connection.on('disconnected', () => {
